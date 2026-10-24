@@ -1,7 +1,7 @@
 JC = javac
 JVM = java
 PACKAGE = jlox
-MAIN = Lox
+MAIN = jlox.Lox
 DEST = jlox_d
 
 SOURCES = $(wildcard $(PACKAGE)/*.java)
@@ -17,9 +17,10 @@ jlox: $(CLASSES)
 default: jlox
 
 run: jlox
-	$(JVM) $(PACKAGE)/$(MAIN)
+	@echo "Running $(MAIN_CLASS)..."
+	@$(JVM) -cp $(DEST) $(MAIN)
 
 clean:
-	$(RM) *.class
+	$(RM) $(DEST)/*.class
 
 .PHONY: jlox run default clean
